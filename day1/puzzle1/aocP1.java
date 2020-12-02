@@ -22,13 +22,15 @@ public class aocP1 {
     bufferedReader.close();
 
     for(int x=0;x<numberArray.length;x++){
-        for(int y=x;y<numberArray.length;y++){ 
-            if(numberArray[x]+numberArray[y]==2020){
-                System.out.println("PAIR FOUND: " + numberArray[x] + " + " + numberArray[y] + " = 2020");
-                System.out.println("ANSWER: " + numberArray[x] + " * " + numberArray[y] + " = " + numberArray[x] * numberArray[y]);
-                return;
-            }
+      for(int y=0;y<numberArray.length;y++){
+        for(int z=0;z<numberArray.length;z++){
+          if(numberArray[x]+numberArray[y]+numberArray[z]==2020){
+              System.out.println("TRIO FOUND: " + numberArray[x] + " + " + numberArray[y] +" + " + numberArray[z] + " = 2020");
+              System.out.println("ANSWER: " + numberArray[x] + " * " + numberArray[y] + " * " + numberArray[z] +" = " + numberArray[x] * numberArray[y] * numberArray[z]);
+              return;
+          }
         }
+      }
     }
   }
 }
