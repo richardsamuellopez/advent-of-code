@@ -18,11 +18,9 @@ fs.readFile('passwords', 'utf-8', (err, data) => {
         const high = password.substring(dashPos+1, semiPos-2);
         const constraint = password.substring(semiPos-1, semiPos);
         const passwordString = password.substring(semiPos+2);
-        const count = [...passwordString].filter(letter => {
-            return letter === constraint;
-        }).length;
-    
-        validCount += (count >= low && count <= high);
+        const isPosOne = passwordString.substring(low-1, low) === constraint;
+        const isPosTwo = passwordString.substring(high-1, high) === constraint;
+        validCount += ((isPosOne && !isPosTwo) || (!isPosOne && isPosTwo));
     })
     console.log('Valid password count: ', validCount);
 })
